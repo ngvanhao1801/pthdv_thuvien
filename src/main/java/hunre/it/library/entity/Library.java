@@ -28,6 +28,6 @@ public class Library {
 
 	private LocalDate ngayTra;
 
-	private String tenSinhVienMuonSach;
+	private String tenSinhVienMuon;
 
 }
