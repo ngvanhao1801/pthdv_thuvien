@@ -34,11 +34,14 @@ public class LibraryService {
 	}
 
 	public Library save(Library library) {
-		if(library.getNgayMuon()  )
+		if (library.getNgayMuon().isAfter(library.getNgayTra())) {
+			throw  new NotFoundException("Ngày trả sách không đúng!");
+		}
 		return libraryRepository.save(library);
 	}
 
-	public Library updateLibrary(Integer maSach, Library student) {
+	public Library update(Library student) {
+		Integer maSach = student.getMaSach();
 		Optional<Library> existingLibrary = libraryRepository.findById(maSach);
 		if (!existingLibrary.isPresent()) {
 			throw new NotFoundException("Không tìm thấy sách với mã sách: " + maSach);

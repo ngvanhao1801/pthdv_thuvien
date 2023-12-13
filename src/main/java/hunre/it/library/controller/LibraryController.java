@@ -21,26 +21,22 @@ public class LibraryController {
 
 	@GetMapping("/library")
 	public List<?> list() {
-
 		return libraryService.listAll();
 	}
 
 	@GetMapping("/library/{id}")
 	public ResponseEntity<?> findById(@PathVariable("id") Integer maSach) {
-		Optional<?> student = libraryService.findById(maSach);
-
-		return ResponseEntity.ok(student);
+		return ResponseEntity.ok(libraryService.findById(maSach).orElse(null));
 	}
 
 	@PostMapping("/library/save")
-	public ResponseEntity<?> createNewLibrary(@RequestBody Library library) {
-
-		return new ResponseEntity<>(libraryService.save(library), HttpStatus.OK);
+	public ResponseEntity<?> create(@RequestBody Library library) {
+		return ResponseEntity.ok(libraryService.save(library));
 	}
 
 	@PutMapping("/library/update/{id}")
-	public ResponseEntity<?> updateLibrary(@PathVariable("id") Integer maSach, @RequestBody Library library) {
-		Library updatedLibrary = libraryService.updateLibrary(maSach, library);
+	public ResponseEntity<?> update(@RequestBody Library library) {
+		Library updatedLibrary = libraryService.update(library);
 
 		return new ResponseEntity<>(updatedLibrary, HttpStatus.OK);
 	}

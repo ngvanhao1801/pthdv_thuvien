@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,11 +22,11 @@ public class Library {
 
 	private String tenSach;
 
-	private String ngayMuon;
+	private LocalDate ngayMuon;
 
 	private int soNgayMuon;
 
-	private String ngayTra;
+	private LocalDate ngayTra;
 
 	private String tenSinhVienMuonSach;
 
