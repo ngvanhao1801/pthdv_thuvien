@@ -1,0 +1,13 @@
+package hunre.it.library;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class PthdvQlyThuvienApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
